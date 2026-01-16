@@ -1,3 +1,149 @@
 * {
-...
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, sans-serif;
+    background: #1a1a2e;
+    color: #eee;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#game-container {
+    width: 480px;
+    height: 640px;
+    background: #16213e;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+#ui {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 16px;
+    background: #0f3460;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+#score::before {
+    content: "Score: ";
+}
+
+#timer::before {
+    content: "Time: ";
+}
+
+#play-area {
+    position: relative;
+    width: 100%;
+    height: calc(100% - 50px);
+    overflow: hidden;
+}
+
+.object {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: #e94560;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    transition: transform 0.1s ease;
+    user-select: none;
+}
+
+.object:hover {
+    transform: scale(1.1);
+}
+
+.object:active {
+    transform: scale(0.95);
+}
+
+.object.good {
+    background: #4ecca3;
+}
+
+.object.bad {
+    background: #e94560;
+}
+
+#start-screen,
+#end-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(22, 33, 62, 0.95);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    z-index: 10;
+}
+
+#start-screen.hidden,
+#end-screen.hidden {
+    display: none;
+}
+
+#start-screen h1,
+#end-screen h1 {
+    margin: 0;
+    font-size: 32px;
+    color: #fff;
+    text-align: center;
+}
+
+#end-screen p {
+    margin: 0;
+    font-size: 20px;
+    color: #ccc;
+}
+
+#final-score {
+    font-weight: 700;
+    color: #4ecca3;
+}
+
+button,
+.btn {
+    background: #e94560;
+    color: #fff;
+    border: none;
+    padding: 14px 32px;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.1s ease;
+}
+
+button:hover,
+.btn:hover {
+    background: #ff6b6b;
+    transform: translateY(-2px);
+}
+
+button:active,
+.btn:active {
+    transform: translateY(0);
+}
+
+#start-btn,
+#restart-btn {
+    min-width: 160px;
 }
